@@ -4,6 +4,8 @@
 <head>\
     <link href="/bootstrap/css/bootstrap-huan.css" rel="stylesheet">
     <style>
+        *{color: #3c3c3c;
+            font-weight: 600;}
         body{
             background: url("/images/bg.jpg") no-repeat;
         }

@@ -27,6 +27,8 @@
     <link href="/css/style.css" rel="stylesheet">
 
     <style>
+        *{color: #3c3c3c;
+            font-weight: 600;}
         .question-number{
             color: #5cb85c;
             font-weight: bolder;
@@ -108,7 +110,7 @@
                     <a href="home.html"><i class="fa fa-home"></i>主页</a>
                 </li> -->
                 <li class="active">
-                    <a href="start-exam"><i class="fa fa-edit"></i>试题练习</a>
+                    <a href="start-exam"> 试题练习</a>
                 </li>
                 <!-- <li>
                     <a href="student/usercenter"><i class="fa fa-dashboard"></i>会员中心</a>
@@ -135,151 +137,7 @@
                 选择您想要参加的测验，考核下自己吧
             </p>
             <div class="row">
-                <!-- <div class="select-test col-xs-6"> -->
-                <!-- <div style="height: 100px;">
-								<div class="select-test-icon">
-									<i class="fa fa-cloud-upload"></i>
-								</div>
-								<div class="select-test-content">
-									<h3 class="title">强化练习</h3>
-									<p>
-										自主选择具体考点，各个击破
-									</p>
-									<a class="btn btn-primary" data-toggle="modal" data-target=".levelup-practice-modal"><i class="fa fa-arrow-right"></i>参加练习</a>
-									<div class="modal fade levelup-practice-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									    	<div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										        <h6 class="modal-title" id="myModalLabel">选择想要练习的知识点</h6>
-										     </div>
-										     <div class="modal-body">
-										     	<ul>
-<%--										     		<c:forEach items="${classifyMap}" var="item">--%>
-<%--										     			<li>--%>
-<%--										     				<div class="knowledge-title">--%>
-<%--										     					<i class="fa fa-chevron-up"> </i><i class="fa fa-chevron-down" style="display:none;"> </i>  <span class="knowledge-title-name">${item.key}</span>--%>
-<%--										     				</div>--%>
 
-<%--										     				<ul class="question-list-knowledge" style="display:none;">--%>
-<%--										     					<c:forEach items="${item.value }" var="tp">--%>
-<%--										     						<li>${tp.questionTypeName } [共<span class="question-number">${tp.amount } </span>题]--%>
-<%--										     							[已做<span class="question-number-2">${tp.rightTimes + tp.wrongTimes } </span> 题]--%>
-<%--										     							<a href="student/practice-improve/${tp.questionPointId }/${tp.questionTypeId }" class="btn btn-success btn-sm join-practice-btn">参加练习</a>--%>
-<%--										     						</li>--%>
-<%--										     					</c:forEach>--%>
-<%--										     				</ul>--%>
-<%--										     			</li>--%>
-<%--										     		</c:forEach>--%>
-										     	</ul>
-										     </div>
-										     <div class="modal-footer">
-        										<button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
-      										 </div>
-									    </div>
-									  </div>
-									</div>
-								</div>
-								//content
-
-							</div> -->
-                <!-- </div> -->
-                <!-- <div class="select-test col-xs-6">
-							<div style="height: 100px;">
-								<div class="select-test-icon">
-									<i class="fa fa-eraser"></i>
-								</div>
-								<div class="select-test-content">
-									<h3 class="title">错题练习</h3>
-									<p>
-										收录做过的所有错题
-									</p>
-								 <a class="btn btn-primary" href="student/practice-incorrect"><i class="fa fa-arrow-right"></i>参加练习</a>
-									<a class="btn btn-primary" data-toggle="modal" data-target=".incorrect-modal"><i class="fa fa-arrow-right"></i>参加练习</a>
-									<div class="modal fade incorrect-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									    	<div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										        <h6 class="modal-title" id="myModalLabel">错题练习</h6>
-										     </div>
-										     <div class="modal-body">
-										     	<ul>
-<%--										     		<c:forEach items="${wrongKnowledgeMap }" var="item" >--%>
-<%--										     			<li><span class="point-name"> ${item.key }</span> [共<span class="question-number-3"><c:forEach items="${item.value }" var="v">${v.value }</c:forEach> </span>题]--%>
-<%--							 			     							<a href="student/practice-incorrect/<c:forEach items="${item.value }" var="k">${k.key }</c:forEach>" class="btn btn-success btn-sm join-practice-btn">参加练习</a>--%>
-<%--										     			</li>--%>
-<%--										     		</c:forEach>--%>
-
-										     	</ul>
-										     </div>
-										     <div class="modal-footer">
-        										<button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
-      										 </div>
-
-									    </div>
-									  </div>
-									</div>
-								</div>
-
-
-							</div>
-						</div> -->
-                <!-- <div class="select-test col-xs-6">
-							<div style="height: 100px;">
-								<div class="select-test-icon">
-									<i class="fa fa-superscript"></i>
-								</div>
-								<div class="select-test-content">
-									<h3 class="title">随机练习</h3>
-									<p>
-
-										根据你对考点的掌握程度智能出题，提升综合能力
-									</p>
-									<a class="btn btn-primary" href="student/practice-test"><i class="fa fa-arrow-right"></i>参加练习</a>
-								</div>
-
-
-							</div>
-						</div>
-						<div class="select-test col-xs-6">
-							<div style="height: 100px;">
-								<div class="select-test-icon">
-									<i class="fa fa-file-text"></i>
-								</div>
-								<div class="select-test-content">
-									<h3 class="title">模拟考试</h3>
-									<p>
-										根据最新大纲的考查要求为你自动生成的模拟卷
-									</p>
-									<a class="btn btn-primary" data-toggle="modal" data-target=".practice-exampaper-modal"><i class="fa fa-arrow-right"></i>参加测验</a>
-									<div class="modal fade practice-exampaper-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									    	<div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										        <h6 class="modal-title" id="myModalLabel">选择试卷，参加考试</h6>
-										     </div>
-										     <div class="modal-body">
-										     	<ul>
-<%--										     		<c:forEach items="${practicepaper}" var="item">--%>
-<%--										     			<li>--%>
-<%--										     				<a href="student/examing/${item.id}">${item.name}</a>--%>
-<%--										     			</li>--%>
-<%--										     		</c:forEach>--%>
-<%--										     	</ul>--%>
-										     </div>
-										     <div class="modal-footer">
-        										<button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
-      										 </div>
-
-									    </div>
-									  </div>
-									</div>
-								</div>
-
-							</div>
-						</div> -->
                 <div class="select-test col-xs-6">
                     <div style="height: 100px;">
                         <div class="select-test-icon">

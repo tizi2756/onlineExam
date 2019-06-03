@@ -87,13 +87,13 @@ public class BaseController {
     public String toMyPage(){
         String loginName = (String) SecurityUtils.getSubject().getPrincipal();
         User user=userService.findByUsername(loginName);
-        if ("1".equals(user.getStatus())){
-            return "student/students-exam";
+        if ("3".equals(user.getStatus())){
+            return "/admin/toquestionAdd";
         } else if("2".equals(user.getStatus())){
             return "redirect:/teacher/toPaperList";
         }
         else {
-            return "admin/questionAdd";
+            return "redirect:/toPaperDetail";
         }
     }
 

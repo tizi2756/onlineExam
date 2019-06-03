@@ -24,6 +24,14 @@
     <link href="/chart/morris.css" rel="stylesheet">
     <link href="/css/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
+        *{color: #3c3c3c ;font-weight: 600!important;}
+        .navbar{
+            background: pink;
+
+        }
+        .navbar .nav > li > a{
+            color:white!important;
+        }
         body{
             background: url("/images/bg.jpg") no-repeat;
         }

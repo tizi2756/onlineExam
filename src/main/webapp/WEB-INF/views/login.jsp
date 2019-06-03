@@ -32,7 +32,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>caomin!!!!!</title>
+    <title>草民!!!!!</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="keywords" content="">
@@ -41,6 +41,10 @@
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <style type="text/css">
+        *{color: #3c3c3c;font-weight: 600;}
+    .navbar{
+        background: black
+    }
         .form-group {
             margin-bottom: 5px;
             height: 59px;
@@ -56,25 +60,9 @@
         <div class="row">
             <div class="col-xs-5">
                 <div class="logo">
-                    <h1><a href="#"><img alt="" src="resources/images/logo.png"></a></h1>
                 </div>
             </div>
-            <div class="col-xs-7" id="login-info">
-                <c:choose>
-                    <c:when test="${not empty sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}">
-                        <div id="login-info-user">
 
-                            <a href="user-detail/${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}" id="system-info-account" target="_blank">${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}</a>
-                            <span>|</span>
-                            <a href="j_spring_security_logout"><i class="fa fa-sign-out"></i> 退出</a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="btn btn-primary" href="user-register">用户注册</a>
-                        <a class="btn btn-success" href="user-login-page">登录</a>
-                    </c:otherwise>
-                </c:choose>
-            </div>
         </div>
     </div>
 </header>
@@ -111,7 +99,7 @@
 
             <div class="col-md-12">
                 <div class="lrform">
-                    <h5>登陆Exam++</h5>
+                    <h5>登陆</h5>
                     <div class="form">
                         <!-- Login form (not working)-->
                         <form class="form-horizontal" action="/login.do" method="post" id="login_form" name="login_form">

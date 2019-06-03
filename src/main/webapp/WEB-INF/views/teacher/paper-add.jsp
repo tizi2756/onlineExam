@@ -25,6 +25,8 @@
     <link href="/css/question-add.css" rel="stylesheet">
     <link href="/chart/morris.css" rel="stylesheet">
     <style>
+        *{color: #3c3c3c}
+
         input.add-ques-amount,input.add-ques-score{
             width:50px;
             margin-right:0;
@@ -42,28 +44,13 @@
         <div class="row">
             <div class="col-xs-5">
                 <div class="logo">
-                    <h1><a href="#">网站管理系统</a></h1>
+                    <h1><a href="#">草民的网站管理系统</a></h1>
                     <div class="hmeta">
-                        专注互联网在线考试解决方案
+                        草民在线考试解决方案
                     </div>
                 </div>
             </div>
-            <div class="col-xs-7" id="login-info">
-                <c:choose>
-                    <c:when test="${not empty sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}">
-                        <div id="login-info-user">
 
-                            <a href="user-detail/${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}" id="system-info-account" target="_blank">${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}</a>
-                            <span>|</span>
-                            <a href="j_spring_security_logout"><i class="fa fa-sign-out"></i> 退出</a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="btn btn-primary" href="user-register.html">用户注册</a>
-                        <a class="btn btn-success" href="user-login-page.html">登录</a>
-                    </c:otherwise>
-                </c:choose>
-            </div>
         </div>
     </div>
 </header>
@@ -73,24 +60,14 @@
     <div class="container">
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <!-- <li>
-                    <a href="#"><i class="fa fa-home"></i>网站首页</a>
-                </li> -->
+
                 <li>
-                    <a href="question-list.html"><i class="fa fa-edit"></i>试题管理</a>
+                    <a href="question-list.html">试题管理</a>
                 </li>
                 <li class="active">
-                    <a href="exampaper-list.html"><i class="fa fa-file-text-o"></i>试卷管理</a>
+                    <a href="exampaper-list.html">试卷管理</a>
                 </li>
-                <!-- <li>
-                    <a href="admin/user-list"><i class="fa fa-user"></i>会员管理</a>
-                </li>
-                <li>
-                    <a href="admin/field-list-1"><i class="fa fa-cloud"></i>题库管理</a>
-                </li>
-                <li>
-                    <a href="admin/sys-backup"><i class="fa fa-cogs"></i>网站设置</a>
-                </li> -->
+
             </ul>
         </nav>
     </div>
@@ -109,16 +86,16 @@
             <div class="col-xs-3">
                 <ul class="nav default-sidenav">
                     <li>
-                        <a href="exampaper-list.html"> <i class="fa fa-list-ul"></i> 试卷管理 </a>
+                        <a href="exampaper-list.html"> 试卷管理 </a>
                     </li>
                     <li class="active">
-                        <a> <i class="fa fa-file-text-o"></i> 创建新试卷 </a>
+                        <a>  创建新试卷 </a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-9">
                 <div class="page-header">
-                    <h1><i class="fa fa-file-text-o"></i> 创建新试卷 </h1>
+                    <h1> 创建新试卷 </h1>
                 </div>
                 <div class="page-content row">
                     <form id="form-exampaper-add" action="/teacher/AddPaper" method="post">
@@ -146,11 +123,7 @@
                             </select>
                             <span class="form-message"></span>
                         </div>
-                        <!-- <div class="form-line add-update-pass-point">
-                            <span class="form-label"><span class="warning-label">*</span>及格分数：</span>
-                            <input type="text" class="df-input-narrow">
-                            <span class="form-message"></span>
-                        </div> -->
+
                         <div class="form-line add-update-duration">
                             <span class="form-label"><span class="warning-label">*</span>时长（分钟）：</span>
                             <input type="text" class="df-input-narrow" name="allowtime">
@@ -167,9 +140,7 @@
 											<input type="hidden" class="ques-id" value="1" >
 											<input type="text" class="df-input-narrow add-ques-amount"name="selectNum">
 											<span>道</span>
-                                    <!-- <label >每道题</label> -->
-                                    <!-- <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span> -->
+
 										</span>
                                 <br>
                                 <span class="add-ques-type">
@@ -177,69 +148,22 @@
 											<input type="hidden" class="ques-id" value="2">
 											<input type="text" class="df-input-narrow add-ques-amount" name="multipleNum">
 											<span>道</span>
-                                    <!-- <label >每道题</label> -->
-                                    <!-- <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span> -->
+
 										</span>
                                 <br>
-                                <!-- <span class="add-ques-type">
-                                    <label >判断题</label>
-                                    <input type="hidden" class="ques-id" value="3">
-                                    <input type="text" class="df-input-narrow add-ques-amount">
-                                    <span>道</span>
-                                    <label >每道题</label>
-                                    <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span>
-                                </span> -->
-                                <!-- <br>
-                                <span class="add-ques-type">
-                                    <label >填空题</label>
-                                    <input type="hidden" class="ques-id" value="4">
-                                    <input type="text" class="df-input-narrow add-ques-amount">
-                                    <span>道</span>
-                                    <label >每道题</label>
-                                    <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span>
-                                </span>
-                                <br> -->
+
                                 <span class="add-ques-type">
 											<label >简答题</label>
 											<input type="hidden" class="ques-id" value="5">
 											<input type="text" class="df-input-narrow add-ques-amount" name="descNum">
 											<span>道</span>
-                                    <!-- <label >每道题</label> -->
-                                    <!-- <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span> -->
+
 										</span>
-                                <!-- <br>
-                                <span class="add-ques-type">
-                                    <label >论述题</label>
-                                    <input type="hidden" class="ques-id" value="6">
-                                    <input type="text" class="df-input-narrow add-ques-amount">
-                                    <span>道</span>
-                                    <label >每道题</label>
-                                    <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span>
-                                </span>
-                                <br>
-                                <span class="add-ques-type">
-                                    <label >分析题</label>
-                                    <input type="hidden" class="ques-id" value="7">
-                                    <input type="text" class="df-input-narrow add-ques-amount">
-                                    <span>道</span>
-                                    <label >每道题</label>
-                                    <input type="text" class="df-input-narrow add-ques-score">
-                                    <span>分</span>
-                                </span>
-                                <br> -->
+
                             </fieldset>
                             <span class="form-message"></span>
                         </div>
-                        <!-- <div class="form-line add-total-point">
-                            <span class="form-label"><span class="warning-label">*</span>总分：</span>
-                            <input id="total-point" type="text" class="df-input-narrow" disabled="disbaled">
-                            <span class="form-message"></span>
-                        </div> -->
+
 
                         <div class="form-line">
                             <input value="下一步" type="submit" class="df-submit">
@@ -252,21 +176,7 @@
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="copy">
-                    <p>
-                        Exam++ Copyright © <a href="http://www.examxx.net/" target="_blank">Exam++</a> - <a href="." target="_blank">主页</a> | <a href="http://www.examxx.net/" target="_blank">关于我们</a> | <a href="http://www.examxx.net/" target="_blank">FAQ</a> | <a href="http://www.examxx.net/" target="_blank">联系我们</a>
-                    </p>
-                </div>
-            </div>
-        </div>
 
-    </div>
-
-</footer>
 
 <!-- Slider Ends -->
 
