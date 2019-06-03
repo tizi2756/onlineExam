@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                http://www.springframework.org/schema/mvc
+                http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<import resource="shiro.xml"></import>
+    <context:component-scan base-package="com.liu.controller"/>
+<!--    &lt;!&ndash; 指示Spring MVC扫描目标包中的类->扫描服务类 &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.liu.service"/>-->
+    <aop:config proxy-target-class="true"></aop:config>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <mvc:annotation-driven />
+
+    <!-- 视图解释类 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+
+    </bean>
+    <!-- 对静态资源文件的访问-->
+<!--    <mvc:resources mapping="/images/**" location="/WEB-INF/images/" />-->
+<!--    <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />-->
+<!--    <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />-->
+    <mvc:resources mapping="/bootstrap/**" location="/WEB-INF/resources/bootstrap/"></mvc:resources>
+    <mvc:resources mapping="/chart/**" location="/WEB-INF/resources/chart/"></mvc:resources>
+    <mvc:resources mapping="/chartjs/**" location="/WEB-INF/resources/chartjs/"></mvc:resources>
+    <mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/"></mvc:resources>
+    <mvc:resources mapping="/files/**" location="/WEB-INF/resources/files"></mvc:resources>
+    <mvc:resources mapping="/flash/**" location="/WEB-INF/resources/flash/"></mvc:resources>
+    <mvc:resources mapping="/font-awesome/**" location="/WEB-INF/resources/font-awesome/"></mvc:resources>
+    <mvc:resources mapping="/images/**" location="/WEB-INF/resources/images/"></mvc:resources>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/resources/js/"></mvc:resources>
+    <mvc:resources mapping="/template/**" location="/WEB-INF/resources/template/"></mvc:resources>
+    <!-- 控制器异常处理 -->
+    <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+    </bean>
+    <bean class="com.liu.controller.DefaultExceptionHandler"/>
+
+</beans>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.UserMapper">
+
+    <insert id="createUser" parameterType="com.liu.entity.user.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user(username, password, salt, emily, status, locked) VALUE (#{username}, #{password}, #{salt},#{emily} ,#{status}, #{locked})
+    </insert>
+
+    <update id="updateUser" parameterType="com.liu.entity.user.User">
+        UPDATE t_user SET username = #{username}, password = #{password}, salt = #{salt},emily=#{emily},status=#{status}, locked = #{locked}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE from t_user WHERE id = #{id}
+    </delete>
+
+    <insert id="correlationRoles">
+        INSERT INTO t_user_role(userId, roleId) VALUES
+        <foreach collection="roleIds" item="roleId" index="index" separator=",">
+            (#{userId}, #{roleId})
+        </foreach>
+    </insert>
+
+    <delete id="uncorrelationRoles" parameterType="java.lang.Integer">
+        DELETE FROM t_user_role WHERE userId = #{userId} AND roleId IN (
+        <foreach collection="roleIds" item="roleId" index="index" separator=",">
+            #{roleId}
+        </foreach>
+        )
+    </delete>
+
+    <select id="findOne" parameterType="java.lang.Integer" resultType="com.liu.entity.user.User">
+        SELECT * FROM t_user WHERE id = #{id}
+    </select>
+
+    <select id="findByUsername" parameterType="java.lang.String" resultType="com.liu.entity.user.User">
+        SELECT * FROM t_user WHERE username = #{username}
+    </select>
+
+    <select id="findRoles" parameterType="java.lang.String" resultType="java.lang.String">
+        select role from t_user u, t_role r,t_user_role ur where u.username=#{username} and u.id=ur.userId and r.id=ur.roleId
+    </select>
+
+    <select id="findPermissions" parameterType="java.lang.String" resultType="java.lang.String">
+        select permission from t_user u, t_role r, t_permission p, t_user_role ur, t_role_permission rp where u.username=#{username} and u.id=ur.userId and r.id=ur.roleId and r.id=rp.roleId and p.id=rp.permissionId
+    </select>
+
+    <!--角色-->
+    <insert id="createRole" parameterType="com.liu.entity.user.Role" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_role(role, description, available) VALUE (#{role}, #{description}, #{available})
+    </insert>
+
+    <delete id="deleteRole" parameterType="java.lang.Integer">
+        DELETE FROM t_role WHERE id = #{roleId}
+    </delete>
+
+    <insert id="correlationPermissions">
+        INSERT t_role_permission(roleId, permissionId) VALUES
+        <foreach collection="permissionIds" item="permissionId" index="index" separator=",">
+            (#{roleId}, #{permissionId})
+        </foreach>
+    </insert>
+
+    <delete id="uncorrelationPermissions" parameterType="java.lang.Integer">
+        DELETE FROM t_role_permission WHERE roleId = #{roleId} AND permissionId IN (
+        <foreach collection="permissionIds" item="permissionId" index="index" separator=",">
+            #{permissionId}
+        </foreach>
+        )
+    </delete>
+
+    <!--权限-->
+    <insert id="createPermission" parameterType="com.liu.entity.user.Permission" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_permission(permission, description, available) VALUE (#{permission}, #{description}, #{available})
+    </insert>
+
+    <delete id="deletePermission" parameterType="java.lang.Integer">
+        DELETE FROM t_permission where id = #{permissionId}
+    </delete>
+</mapper>

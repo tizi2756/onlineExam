@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.QuestionMapper">
+
+    <insert id="createQuestion" parameterType="com.liu.entity.question.TQuestion" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_question(name, optiona, optionb, optionc, optiond, typeId, points, creat_time, creator) VALUE (#{name}, #{optiona}, #{optionb}, #{optionc}, #{optiond}, #{typeId},#{points} ,#{creat_time}, #{creator})
+    </insert>
+
+    <update id="updateQuestion" parameterType="com.liu.entity.question.TQuestion">
+        UPDATE t_question SET name = #{name}, optiona = #{optiona},optionb = #{optionb},optionc = #{optionc},optionc = #{optiond}, typeId = #{typeId},points=#{points},creat_time=#{creat_time}, creator = #{creator}
+    </update>
+
+    <delete id="deleteQuestion" parameterType="java.lang.Integer">
+        DELETE from t_question WHERE id = #{id}
+    </delete>
+
+    <select id="findQuestionById" parameterType="java.lang.Integer" resultType="com.liu.entity.question.TQuestion">
+        SELECT * FROM t_question WHERE id = #{questionId}
+    </select>
+
+    <select id="getQuestionListByIdListNew" resultType="com.liu.entity.question.TQuestion">
+        select id,name,optiona,optionb,optionc,optiond,answer,typeId from t_question
+        <where>
+            id in
+            <foreach collection="array" open="(" close=")" index="index"
+                     item="item" separator=",">
+                #{item}
+            </foreach>
+        </where>
+        order by typeId,id
+    </select>
+
+    <select id="getQuestionList" resultType="com.liu.entity.question.TQuestion">
+        select * from t_question
+    </select>
+
+    <select id="getQuestionListByTypeId" resultType="com.liu.entity.question.TQuestion">
+        select * from t_question where typeId=#{typeId}
+    </select>
+
+    <!-- 随机生成相应数量的题目 -->
+    <select id="createPaper" parameterType="map" resultType="com.liu.entity.question.TQuestion">
+		select * from t_question
+			where typeId=#{typeId}
+			ORDER BY RAND() LIMIT #{num}
+	</select>
+
+</mapper>

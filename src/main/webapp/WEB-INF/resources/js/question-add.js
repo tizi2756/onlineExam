@@ -1,0 +1,23 @@
+$(document).ready(function(){
+$("#question-add-form").validate({
+	rules:{
+		name:{
+			required:true,
+			minlength:1,
+			maxlength:500
+		},
+		optiona:{
+			required:true,
+		},
+		optionb:{
+			required:true,
+		},
+		optionc:{
+			required:true,
+		},
+		optiond:{
+			required:true,
+		},
+	}
+})
+})
