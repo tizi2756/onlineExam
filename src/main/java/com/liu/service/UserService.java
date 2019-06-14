@@ -2,6 +2,7 @@ package com.liu.service;
 
 import com.liu.entity.user.User;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -23,4 +24,8 @@ public interface UserService {
     Set<String> findRoles(String username);
 
     Set<String> findPermissions(String username);
+
+    List<User> getAllUserList();
+
+    void deleteUser(Long id);
 }

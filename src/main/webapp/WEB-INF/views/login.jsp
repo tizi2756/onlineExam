@@ -43,7 +43,10 @@
     <style type="text/css">
         *{color: #3c3c3c;font-weight: 600;}
     .navbar{
-        background: black
+        background: dodgerblue;
+    }
+    .navbar-nav a:hover{
+        background-color: deepskyblue;
     }
         .form-group {
             margin-bottom: 5px;

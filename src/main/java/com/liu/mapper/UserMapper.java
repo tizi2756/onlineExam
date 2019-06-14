@@ -5,6 +5,7 @@ import com.liu.entity.user.Role;
 import com.liu.entity.user.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,6 +17,7 @@ public interface UserMapper {
     public int createUser(User user);
     public void updateUser(User user);
     public void deleteUser(Long id);
+    public List<User> getAllUserList();
 
     public int correlationRoles(@Param("userId") Long userId, @Param("roleIds") Long... roleIds);
     public void uncorrelationRoles(@Param("userId") Long userId, @Param("roleIds") Long... roleIds);

@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * @Auther: Administrator
  * @Date: 2019/5/31 21:55
- * @Description:
+ * @Description: 试卷处理
  */
 @Controller
 public class PaperController {
@@ -48,7 +48,7 @@ public class PaperController {
 
     /**
      * @Author Administrator
-     * @Description //TODO
+     * @Description 随机生成试卷//TODO
      * @Date 12:17 2019/6/1
      * @return java.lang.String
      **/

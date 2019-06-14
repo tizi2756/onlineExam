@@ -1,5 +1,7 @@
 package com.liu.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.liu.entity.user.User;
 import com.liu.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -10,15 +12,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
- * @Auther: Administrator
+ * @Auther: liuh
  * @Date: 2019/5/28 18:48
- * @Description:
+ * @Description: 基本处理
  */
 @Controller
 public class BaseController {
@@ -31,6 +35,13 @@ public class BaseController {
         return "/index.jsp";
     }
 
+    /*
+     * @Author liuh
+     * @Description 用户登录//TODO
+     * @Date 20:07 2019/6/11
+     * @Param [req]
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "/login")
     public String login(HttpServletRequest req){
 
@@ -83,6 +94,13 @@ public class BaseController {
         return "teacher/teacherTest";
     }
 
+    /*
+     * @Author liuh
+     * @Description 判断用户身份，返回相应页面//TODO
+     * @Date 20:08 2019/6/11
+     * @Param []
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "/toMyPage")
     public String toMyPage(){
         String loginName = (String) SecurityUtils.getSubject().getPrincipal();
@@ -100,5 +118,37 @@ public class BaseController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(){
         return "index";
+    }
+
+    /*
+     * @Author liuh
+     * @Description 前往用户列表//TODO
+     * @Date 20:09 2019/6/11
+     * @Param [pageNo, model]
+     * @return java.lang.String
+     **/
+    @RequestMapping("/admin/toUserList")
+    public String toUserList(@RequestParam(defaultValue = "1",required = true,value = "pageNo")Integer pageNo,Model model){
+        Integer pageSize=10;
+        PageHelper.startPage(pageNo,pageSize);
+        List<User> users=userService.getAllUserList();
+        PageInfo<User> pageInfo=new PageInfo<>(users);
+        model.addAttribute("users",users);
+        return "admin/userList";
+    }
+
+    /**
+     * @Author Administrator
+     * @Description //TODO
+     * @Date 20:03 2019/6/11
+     * @param id
+     * @return java.lang.String
+     **/
+    @RequestMapping("/admin/deletUser")
+    public String deletUser(String id){
+        if (id!=null){
+            userService.deleteUser(Long.valueOf(id));
+        }
+        return "redirect:/admin/toUserList";
     }
 }

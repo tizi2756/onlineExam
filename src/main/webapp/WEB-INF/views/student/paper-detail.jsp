@@ -32,16 +32,7 @@
     </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-5">
 
-            </div>
-
-        </div>
-    </div>
-</header>
 <!-- Navigation bar starts -->
 
 <div class="navbar bs-docs-nav" role="banner">
@@ -52,7 +43,7 @@
                     <a href="home"><i class="fa fa-home"></i>主页</a>
                 </li> -->
                 <li class="active">
-                    <a href="start-exam"><i class="fa fa-edit"></i>试题练习</a>
+                    <a href="start-exam"> 试题练习</a>
                 </li>
                 <!-- <li>
                     <a href="student/usercenter"><i class="fa fa-dashboard"></i>会员中心</a>
@@ -71,42 +62,18 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-3" style="padding-right: 0px;padding-bottom:15px;">
-                <div class="def-bk" id="bk-exam-control">
 
-                    <div class="def-bk-content" id="exam-control">
-
-                        <div id="question-time" class="question-time-normal">
-                            <span id="count_time"></span>
-                        </div>
-                        <div id="question-submit">
-                            <button class="btn-success btn" style="width:100%;">
-                                我要交卷
-                            </button>
-                        </div>
-                        <div id="exam-info" style="display:none;">
-                            <span id="answer-hashcode"></span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="col-xs-9" style="padding-right: 0px;">
+            <div class="col-xs-12" style="padding-right: 0px;">
                 <div class="def-bk" id="bk-exampaper">
 
                     <div class="expand-bk-content" id="bk-conent-exampaper">
                         <div id="exampaper-header">
                             <div id="exampaper-title">
-                                <i class="fa fa-send"></i>
-                                <span id="exampaper-title-name"> 模拟试卷 </span>
+
+                                <span id="exampaper-title-name">  试卷 </span>
                                 <span style="display:none;" id="exampaper-id">1</span>
                             </div>
-                            <div id="exampaper-desc-container">
-                                <div id="exampaper-desc" class="exampaper-filter">
 
-                                </div>
-                            </div>
 
                         </div>
                         <form action="${ctx}/dealPaper.action" method="post" id="myForm" name="myForm">
@@ -144,6 +111,27 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="col-xs-3" style="padding-right: 0px;padding-bottom:15px;">
+                <div class="def-bk" id="bk-exam-control">
+
+                    <div class="def-bk-content" id="exam-control">
+
+                        <div id="question-time" class="question-time-normal">
+                            <span id="count_time"></span>
+                        </div>
+                        <div id="question-submit">
+                            <button class="btn-primary btn" style="width:100%;">
+                                交卷
+                            </button>
+                        </div>
+                        <div id="exam-info" style="display:none;">
+                            <span id="answer-hashcode"></span>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

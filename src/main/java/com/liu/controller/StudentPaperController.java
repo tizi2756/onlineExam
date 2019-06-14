@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * @Auther: Administrator
  * @Date: 2019/6/2 09:41
- * @Description:
+ * @Description: 做题处理
  */
 @Controller
 public class StudentPaperController {
@@ -87,5 +87,10 @@ public class StudentPaperController {
 
         model.addAttribute("paper", paper);
         return "/student/paper-detail";
+    }
+    @RequestMapping("/finishExam")
+    public String setHistory(){
+
+        return "student/exam-set";
     }
 }

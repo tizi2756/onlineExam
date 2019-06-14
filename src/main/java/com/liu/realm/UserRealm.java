@@ -14,7 +14,7 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 /**
  * @Auther: Administrator
  * @Date: 2019/5/24 14:22
- * @Description:
+ * @Description: 重新定义shiro方法
  */
 public class UserRealm extends AuthorizingRealm {
 

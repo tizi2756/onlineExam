@@ -79,6 +79,14 @@
 		select * from t_paper
 		where id=#{id}
 	</select>
+
+    <!--提交考试-->
+    <insert id="setHistory" parameterType="com.liu.entity.paper.TUserPaper">
+        insert into t_user_paper
+        (userId, paperId, answer, "time", score)
+        values
+        (#{userId},#{paperId},#{answer},#{time},#{score})
+    </insert>
 </mapper>
 
 

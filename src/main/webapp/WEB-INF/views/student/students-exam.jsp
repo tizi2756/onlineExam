@@ -131,95 +131,56 @@
 <div class="content" style="margin-bottom: 100px;">
 
     <div class="container">
-        <div>
-            <h3>开始测验</h3>
-            <p>
-                选择您想要参加的测验，考核下自己吧
-            </p>
-            <div class="row">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <div>
+                    <h3>开始测验</h3>
 
-                <div class="select-test col-xs-6">
-                    <div style="height: 100px;">
-                        <div class="select-test-icon">
-                            <i class="fa fa-book"></i>
-                        </div>
-                        <div class="select-test-content">
-                            <h3 class="title">随机组卷</h3>
-                            <p>
-                                随机组成试卷参加考试
-                            </p>
-                            <a class="btn btn-primary" data-toggle="modal" data-target=".history-exampaper-modal" ><i class="fa fa-arrow-right"></i>参加练习</a>
-                            <div class="modal fade history-exampaper-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h6 class="modal-title" id="myModalLabel">选择试卷，参加考试</h6>
-                                        </div>
-                                        <div class="modal-body">
-                                            <ul>
-                                                <c:forEach items="${papers}" var="item">
-                                                    <li>
-                                                        <a href="/qryPaperDetail.action?id=${item.id}">${item.papername}</a>
-                                                    </li>
-                                                </c:forEach>
-                                            </ul>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
-                                        </div>
+                    <div class="row">
 
+                        <div class="select-test col-xs-6">
+                            <div style="height: 100px;">
+
+                                <div class="select-test-content">
+                                    <h3 class="title">随机出卷</h3>
+
+                                    <a class="btn btn-primary" data-toggle="modal" data-target=".history-exampaper-modal" > 参加练习</a>
+                                    <div class="modal fade history-exampaper-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                                </div>
+                                                <div class="modal-body">
+                                                    <ul>
+                                                        <c:forEach items="${papers}" var="item">
+                                                            <li>
+                                                                <a href="/qryPaperDetail.action?id=${item.id}">${item.papername}</a>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--//content-->
+
                             </div>
                         </div>
-                        <!--//content-->
+
 
                     </div>
+
                 </div>
-                <div class="select-test col-xs-6">
-                    <div style="height: 100px;">
-                        <div class="select-test-icon">
-                            <i class="fa fa-rocket"></i>
-                        </div>
-                        <div class="select-test-content">
-                            <h3 class="title">专家试卷</h3>
-                            <p>
-                                专家组卷，为你提供更权威的考题动向
-                            </p>
-                            <a class="btn btn-primary" data-toggle="modal" data-target=".expert-exampaper-modal" disabled="disabled"><i class="fa fa-arrow-right"></i>即将开放</a>
-                            <div class="modal fade expert-exampaper-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h6 class="modal-title" id="myModalLabel">选择试卷，参加考试</h6>
-                                        </div>
-                                        <div class="modal-body">
-                                            <ul>
-                                                <c:forEach items="${papers}" var="item">
-                                                    <li>
-                                                        <a href="/qryPaperDetail.action?id=${item.id}">${item.papername}</a>
-                                                    </li>
-                                                </c:forEach>
-                                            </ul>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//content-->
-
-                    </div>
-                </div>
-
             </div>
-
         </div>
+
 
     </div>
 
